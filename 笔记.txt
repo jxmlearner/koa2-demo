@@ -72,7 +72,7 @@ cnpm i -S mongoose
 mongod --bind_ip 192.168.0.237 --port 27017
 https://blog.csdn.net/baidu_19473529/article/details/79434581
 以服务的方式开启：http://www.runoob.com/mongodb/mongodb-window-install.html    --好像从4.0开始,自动安装了服务，只是没有启动，net start MongoDB就可以了
-//注意进入到mongodb安装目录bin下执行会比较好，即使匹配了环境变量，在别的盘执行mongod还是出错
+//注意进入到mongodb安装目录bin下执行会比较好，即使配置了环境变量，在别的盘执行mongod还是出错
 mongod.exe --config "D:\Program Files\MongoDB\Server\4.0\bin\mongod.cfg" --serviceName MongoDB --install
 net start MongoDB
 net stop MongoDB
