@@ -100,10 +100,10 @@
                     this.$refs[formName].validate((valid) => {
                         if (valid) {
                             //发送ajax请求去后台验证用户名和密码
-                            axios.post('/admin/home/ValidateLogin', this.loginForm)
+                            axios.post('/login/ValidateLogin', this.loginForm)
                                 .then(function (res) {
                                     if (res.data.status == 200) {
-                                        window.location.href = "/admin/home";
+                                        window.location.href = "/admin";
                                     } else {
                                         _that.$message.error(res.data.msg);
                                     }

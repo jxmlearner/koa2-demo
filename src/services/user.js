@@ -26,7 +26,7 @@ module.exports={
   async editUser(user){  //修改用户信息
     var flag=false;
     //如下方式可以指定更新单个或某几个字段
-    await User.findByIdAndUpdate(user._id,{$set:{user.username,user.password,user.headpic,user.lastlogintime}}).then(d=>{
+    await User.findByIdAndUpdate(user._id,{$set:{username:user.username,password:user.password,headpic:user.headpic,lastlogintime:user.lastlogintime}}).then(d=>{
       flag=true;
     });
     return flag;

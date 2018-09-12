@@ -1,7 +1,7 @@
 1、初始化项目目录
 ```
-mkdir node01
-cd node01
+mkdir koa2-demo
+cd koa2-demo
 npm init -y
 ```
 2、建立src目录及 src/app.js文件

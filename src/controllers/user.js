@@ -17,11 +17,13 @@ module.exports={
     };
   },
   getUserByNameAndPass:async(ctx,next)=>{
-    let {username,password}=ctx.request.body;  //获取post中的数据
+    let {username,userpwd:password}=ctx.request.body;  //获取post中的数据
+
     let data=await service.getUserByNameAndPass(username,password);
+    console.log('service返回的用户数据',data);
     ctx.response.body={
-      status:200,
-      msg:'',
+      status:data?200:100,
+      msg:data?'':'用户名或密码错误',
       data:data?data:[]
     };
   }

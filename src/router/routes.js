@@ -1,5 +1,8 @@
 const Router=require('koa-router')
-const todoController=require('../controllers/todo.js');
+const todoController=require('../controllers/todo')
+const userController=require('../controllers/user')
+const adminController=require('../controllers/admin')
+
 //加入 koa-passport身份验证
 const passport=require('koa-passport')
 
@@ -37,6 +40,13 @@ module.exports= (app)=>{
     }
     await ctx.render('login',vm)
   })
+  //用户登录验证
+  router.post('/login/ValidateLogin',userController.getUserByNameAndPass)
+
+  //后台管理首页
+  router.get('/admin',adminController.indexPage)
+  
+
 
   //api数据接口路由
   apiRouter.get('/todo/getall/:userid?',todoController.getall)   //userid参数可选

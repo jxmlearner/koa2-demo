@@ -1,4 +1,4 @@
-# 学习Nodejs
+# 学习Nodejs -结合koa2+MongoDB(mongoose使用)+ejs模板引擎+vue-element(js引入方式使用)
 
 1 npm init -y
 ```
