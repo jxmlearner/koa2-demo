@@ -33,8 +33,9 @@ module.exports= (app)=>{
     }
   })
 
-  router.get('/login',async(ctx,next)=>{
-    //登录页面
+  router.get('/todo',todoController.index)    //todo页面
+
+  router.get('/login',async(ctx,next)=>{      //登录页面    
     var vm={
       title:'登录'
     }

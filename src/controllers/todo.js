@@ -1,6 +1,12 @@
 const service=require('../services/todo')
 
 module.exports={
+  index:async(ctx,next)=>{
+    var vm={
+      title:'首页'
+    }
+    await ctx.render('index',vm)
+  },
   /*
   取所有todo列表
   */

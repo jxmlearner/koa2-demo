@@ -83,9 +83,10 @@ mongo --host 192.168.0.237
 mongoose文档：https://mongoosejs.com/docs/index.html
 
 4、koa-passport身份验证
-参考：https://github.com/mjhea0/koa-passport-example
+参考：https://github.com/mjhea0/koa-passport-example          --官方示例
 https://segmentfault.com/a/1190000011557953
 https://www.cnblogs.com/beileixinqing/p/9273243.html
+https://www.jianshu.com/p/7010bea0c656
 cnpm i -S koa-passport koa-session passport-local
 
 auth文件夹下建一个passport的策略文件 passport.js
@@ -108,8 +109,8 @@ passport.deserializeUser(async function(id, done) {
 })
 // 提交数据(策略)
 passport.use(new LocalStrategy({
-  // usernameField: 'email',
-  // passwordField: 'passwd'
+  usernameField: 'username',
+  passwordField: 'userpwd'
 }, function(username, password, done) {
   console.log('LocalStrategy', username, password)
   var user = {id: 1, username: username, password: password}

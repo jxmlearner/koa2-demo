@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://192.168.0.237:27017/test', {useNewUrlParser:true})
+const config=require('../config/default')
+
+mongoose.connect(config.databaseUrl, {useNewUrlParser:true})
 mongoose.Promise = global.Promise
 const Schema = mongoose.Schema
 
