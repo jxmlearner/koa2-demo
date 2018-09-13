@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const config=require('../config/default')
 
 mongoose.connect(config.databaseUrl, {useNewUrlParser:true})
-mongoose.Promise = global.Promise
+mongoose.Promise = global.Promise  //使用node.js的Promise
 const Schema = mongoose.Schema
 
 

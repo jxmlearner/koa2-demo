@@ -1,7 +1,7 @@
 const User=require('./schemas/user')
 
 var user={
-  username:'admin',
+  username:'jiang',
   password:'123456',
   addtime:'2018-09-12 16:22:20',
   headpic:''

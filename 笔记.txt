@@ -179,3 +179,35 @@ indexPage: async (ctx, next) => {
         await ctx.render('admin', vm)
     }
 ```
+
+5、用户密码加密  参考：https://blog.csdn.net/original_heart/article/details/78538908?reload
+cnpm i bcrypt -S
+
+const bcrypt = require('bcrypt')
+const saltSounds=10     //bcrypt生成salt的迭代次数
+
+UserSchema.pre('save',next=>{
+  //如果密码没有修改则直接返回
+  if(!this.isMidified('password')) return next()        
+  bcrypt.genSalt(saltSounds,(err,salt)=>{
+    if(err) return next(err)
+    bcrypt.hash(this.password,salt,(error,hash)=>{  //生成salt并获取hash值
+      if(error) return next(error)
+      this.password=hash
+      next()
+    })
+  })
+  next()
+})
+
+UserSchema.methods={
+  comparePassword:(_password,password)=>{
+    return new Promise((resolve,reject)=>{
+      bcrypt.compare(_password,password,(err,isMatch)=>{
+        if(!err) resolve(isMatch)
+        else
+          reject(err)
+      })
+    })
+  }
+}
