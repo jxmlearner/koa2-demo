@@ -11,6 +11,8 @@ const passport=require('koa-passport')
 const router = require('./router/routes')
 //自定义的操作日志中间件
 const oplog=require('./middleware/operationlog')
+//自定义的登录访问页面中间件
+const authrize=require('./middleware/authorize')
 
 
 
@@ -35,6 +37,7 @@ app.use(passport.session())
 
 
 app.use(koaLogger())  //开发日志
+app.use(authrize) //需要登录的页面要登录才可以访问，目录是用的session存储登录用户。
 app.use(oplog)   //记录操作日志的中间件 --写入到数据库中
 app.use(cors())
 app.use(json())

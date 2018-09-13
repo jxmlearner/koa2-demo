@@ -12,25 +12,11 @@ module.exports= (app)=>{
   const apiRouter=new Router();
 
   //页面路由
-  // router.get('/', async(ctx,next)=>{
-  //   //首页
-  //   var vm={
-  //     title:'首页'
-  //   }
-  //   await ctx.render('index',vm)
-  // })
-
   router.get('/', async(ctx,next)=>{
-    if (ctx.isAuthenticated()) {  //如果已经登录
-      //首页
-      var vm={
-        title:'首页'
-      }
-      await ctx.render('index',vm)
-    } else {
-      ctx.body = { success: false };
-      ctx.throw(401);
+    var vm={
+      title:'首页'
     }
+    await ctx.render('index',vm)
   })
 
   router.get('/todo',todoController.index)    //todo页面
