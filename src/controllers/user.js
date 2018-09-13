@@ -2,6 +2,20 @@ const service=require('../services/user')
 const passport=require('../auth/passport')
 
 module.exports={
+  logout:async(ctx,next)=>{
+    if (ctx.isAuthenticated()) {
+      ctx.logout();
+      ctx.body={
+        status:200,
+        msg:'退出成功'
+      }
+    } else {
+      ctx.body = {
+        status:100,
+        msg:'您尚未登录，或身份已经过期。'
+      }
+    }
+  },
   /*
   取所有用户列表
   */

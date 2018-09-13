@@ -29,6 +29,7 @@ module.exports= (app)=>{
   })
   //用户登录验证
   router.post('/login/ValidateLogin',userController.getUserByNameAndPass)
+  router.post('/logout',userController.logout)
 
   //后台管理首页
   router.get('/admin',adminController.indexPage)

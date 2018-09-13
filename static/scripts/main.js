@@ -73,6 +73,11 @@ var app=new Vue({
 					this.$router.push({path:'/'});
 				}
 			}
+		},
+		logout() {  //退出登录
+            axios.post('/logout').then(function () {
+                window.location.replace('/login');
+            });
         }
 	},
 	computed: {

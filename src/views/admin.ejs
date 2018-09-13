@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%=title %></title>
 	<link href="scripts/element-ui/index.css" rel="stylesheet" />
-	<link href="css/iconfont/iconfont.css" rel="stylesheet" />
+	<link href="iconfont/iconfont.css" rel="stylesheet" />
 	<link href="css/main.css" rel="stylesheet" />
   </head>
   <body>
@@ -74,7 +74,7 @@
 									<el-dropdown-item divided>
 										<div class="setting-div">
 											<span class="setting-icon"><i class="el-icon-logout"></i></span> 
-											<span class="setting-string"> Sign out  退出</span>
+											<span class="setting-string" v-on:click="logout()"> Sign out  退出</span>
 										</div>
 										
 									</el-dropdown-item>
